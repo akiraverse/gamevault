@@ -31,8 +31,8 @@ export default function RootLayout({
       className={`${kufam.variable} ${pressStart.variable} h-full antialiased`}
     >
 
-      <body className="min-h-full w-full flex flex-col font-sans bg-fixed from-primary to-darkPrimary bg-gradient-to-br">
-         <Navbar />
+      <body className="min-h-full w-full flex flex-col font-sans bg-fixed bg-primary">
+         <Navbar/>
 
          <main className="">
           {children}

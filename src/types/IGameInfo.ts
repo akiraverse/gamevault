@@ -1,5 +1,5 @@
 export default interface IGameInfo {
-	id: number,
+	id: string,
 	title: string,
 	slug: string,
 	coverImage: string,

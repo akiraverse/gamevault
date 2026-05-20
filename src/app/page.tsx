@@ -1,40 +1,20 @@
-import Image from "next/image";
-import Link from "next/link";
-
-import games from "@/data/games.json"
+import data from "@/data/games.json"
 
 import IGameInfo from "@/types/IGameInfo"
 
+import SlidingBanner from "@/components/SlidingBanner";
+
+
 export default function Home() {
-  const data: IGameInfo = games[0]
+  const featuredGames: IGameInfo[] = data.filter(item => item.featured === true);
+  const games: IGameInfo[] = data
+
   return (
-    <div>
-      <div>
-        <Image src={data.coverImage} width={100} height={100} alt=''/>
+    <div className="w-full">
 
-        <div>
-          <p>featured</p>
-          <h2>{data.title}</h2>
-          <h4>{data.description}</h4>
-          <div>
-            {data.genres.map((item, index) => (
-              <div>
-                {item}
-              </div>
-            ))}
-          </div>
-
-          <div>
-            <div>
-              <Link href={''}>View Details</Link>
-            </div>
-            <div>
-              Rating: {data.rating}
-            </div>
-          </div>
-        </div>
-        
-      </div>
+      <section className="w-full h-[100vh] top-0 relative">
+        <SlidingBanner slides={featuredGames}/>
+      </section>
     </div>
   );
 }

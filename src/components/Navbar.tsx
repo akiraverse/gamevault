@@ -8,7 +8,7 @@ export default function Navbar() {
 	const [isOpen, setIsOpen] = useState(false)
 
 	return (
-		<nav className="w-full h-auto py-5">
+		<nav className="w-[95%] h-auto py-3 my-5 fixed mx-auto self-center z-50 bg-primary backdrop-blur-md bg-opacity-5 rounded-full">
 			{/* desktop menu */}
 			<div className="flex lg:flex-row w-[90%] self-center items-center mx-auto justify-between text-lg">
 
@@ -23,7 +23,7 @@ export default function Navbar() {
 				{/* Menus */}
 				<div className="w-2/4 justify-center flex lg:flex-row">
 					{menus.map((item, index) => (
-						<div key={index} className="px-6 py-3 hover:bg-lightPrimary rounded-full">
+						<div key={index} className="px-6 py-3 hover:bg-white/10 hover:backdrop-blur-md rounded-full">
 							<Link href={`/${item.toString().toLowerCase()}`} className="">
 								{item}
 							</Link>
