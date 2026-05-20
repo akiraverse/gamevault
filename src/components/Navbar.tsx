@@ -2,9 +2,16 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-export default function Navbar() {
-	const menus: string[] = ['Home', 'Games', 'Wishlist']
+const menus = [
+	{menu: 'Home', route: '/'},
+	{menu: 'Games', route: '/games'},
+	{menu: 'Wishlist', route: '/wishlist'}
+]
+
+export const Navbar: React.FC = () => {
+	const router = useRouter()
 	const [isOpen, setIsOpen] = useState(false)
 
 	return (
@@ -24,9 +31,9 @@ export default function Navbar() {
 				<div className="w-2/4 justify-center flex lg:flex-row">
 					{menus.map((item, index) => (
 						<div key={index} className="px-6 py-3 hover:bg-white/10 hover:backdrop-blur-md rounded-full">
-							<Link href={`/${item.toString().toLowerCase()}`} className="">
-								{item}
-							</Link>
+							<button onClick={() => (router.push(item.route))} className="">
+								{item.menu}
+							</button>
 						</div>
 					))}
 				</div>

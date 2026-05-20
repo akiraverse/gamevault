@@ -6,7 +6,7 @@ import { Sparkles, Star } from "lucide-react";
 
 import IGameInfo from "@/types/IGameInfo";
 
-export default function SlidingBanner({ slides }: { slides: IGameInfo[] }) {
+export const SlidingBanner = ({ slides }: { slides: IGameInfo[] }) => {
 	const [currentIndex, setCurrentIndex] = useState(0)
 	const [isPaused, setIsPaused] = useState(false)
 	const autoPlayRef = useRef<number | null>(null)

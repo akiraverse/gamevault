@@ -2,8 +2,8 @@ import data from "@/data/games.json"
 
 import IGameInfo from "@/types/IGameInfo"
 
-import SlidingBanner from "@/components/SlidingBanner";
-import Card from "@/components/Card";
+import { SlidingBanner } from "@/components/SlidingBanner";
+import { Card } from "@/components/Card";
 
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
   const games: IGameInfo[] = data
 
   return (
-    <div className="w-full">
+    <div className="w-full space-y-52">
 
       <section className="w-full h-[100vh] top-0 relative">
         <SlidingBanner slides={featuredGames}/>

@@ -6,11 +6,11 @@ import { Sparkles, Star } from "lucide-react";
 
 import IGameInfo from "@/types/IGameInfo";
 
-export default function Card({ slide, route }: { slide: IGameInfo, route: string }) {
+export const Card = ({ slide, route }: { slide: IGameInfo, route: string }) => {
 	return (
 		<Link href={route}>
-			<div className="relative z-20 lg:w-full h-auto rounded-xl border border-white/30 hover:border-white/50">
-				<div className="absolute inset-0 z-10 hover:from-white/30 hover:to-white/0 hover:bg-gradient-to-t rounded-xl"/>
+			<div className="relative z-20 lg:w-full h-auto rounded-xl border border-white/30 hover:border-red-700/50">
+				<div className="absolute inset-0 z-10 hover:from-red-700/30 hover:to-re-700/0 hover:bg-gradient-to-t rounded-xl"/>
 					<div className="w-full h-[30vh] bg-cover bg-center bg-clip-content rounded-t-xl" style={{ backgroundImage: `url(${slide.coverImage})`}}/>
 					<div className="p-7 space-y-5">
 						<div className="space-y-2">
@@ -26,10 +26,10 @@ export default function Card({ slide, route }: { slide: IGameInfo, route: string
 								Rp. {slide.price.toString()}
 							</div>
 						</div>
-						<div className="flex flex-wrap space-x-2">
+						<div className="flex flex-wrap">
 							{slide.genres.map((item, index) => {
 								return (
-									<div key={index} className="px-3 py-1 h-fit w-fit rounded-full bg-corange/20 text-corange border border-corange/40">
+									<div key={index} className="px-3 py-1 my-1 mr-1 h-fit w-fit rounded-full bg-corange/20 text-corange border border-corange/40">
 										{item}
 									</div>
 								)

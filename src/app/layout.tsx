@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Kufam, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "@/components/Navbar";
+import { Navbar } from "@/components/Navbar";
 
 const kufam = Kufam({
   variable: "--font-kufam",
