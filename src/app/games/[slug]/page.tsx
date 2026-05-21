@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist, toggleWishlist } from "@/utils/wishlist";
 import data from "@/data/games.json"
 import IGameInfo from "@/types/IGameInfo";
+import { NotFoundPage } from "@/components/NotFoundPage";
 
 export default function Game({params}: {params: Promise<{slug: string}>}) {
 	const router = useRouter()
@@ -14,9 +15,12 @@ export default function Game({params}: {params: Promise<{slug: string}>}) {
 
 	const games: IGameInfo[] = data
 	const game: IGameInfo | undefined = games.find((g) => (g.slug === slug))
-	const wishlistedGames: string[] = getWishlist()
 	const [inWishlist, setInWishlist] = useState(false)
 	const gameId = String(game?.id)
+	
+	if (!game) {
+		return <NotFoundPage/>
+	}
 
 	useEffect(() => {
 		if (game) {
