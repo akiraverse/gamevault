@@ -74,31 +74,30 @@ export const SlidingBanner = ({ slides }: { slides: IGameInfo[] }) => {
 			<div className="absolute h-full inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-transparent" />
 			<div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent" />
 
-			<div className="relative container mx-auto px-4 h-full flex items-center">
-				<div className="w-[70%] flex flex-col space-y-5">
-					<div className="space-x-3 flex flex-row">
-						<Sparkles className="font-semibold text-gray-200"/>
-						<p className="text-lg font-semibold text-gray-200">FEATURED</p>
+			<div className="relative w-[90%] h-full container mx-auto px-4 flex items-center">
+				<div className="w-full lg:w-[70%] flex flex-col space-y-[1vh] sm:space-y-[3vh]">
+					<div className="space-x-2 lg:space-x-3 flex flex-row">
+						<Sparkles className="size-[1.7vh] sm:size-[2vh] lg:size-[1.5vw] font-semibold text-gray-200"/>
+						<p className="text-[1.7vh] sm:text-[2vh] lg:text-[1.5vw] font-semibold text-gray-200">FEATURED</p>
 					</div>
 				
-					<div className="text-7xl font-extrabold bg-gradient-to-r from-cred via-accent to-amber-500 bg-clip-text text-transparent">{slide.title}</div>
-					<h4 className="text-lg">{slide.longDescription.split('\n\n')[0]}</h4>
+					<div className="text-[6vh] sm:text-[6.5vh] lg:text-[6vw] leading-[1.1] font-extrabold bg-gradient-to-r from-cred via-accent to-amber-500 bg-clip-text text-transparent">{slide.title}</div>
+					<h4 className="text-[1.7vh] sm:text-[2vh] lg:text-[1.5vw]">{slide.longDescription.split('\n\n')[0]}</h4>
 
-					<div className="flex flex-wrap space-x-3">
+					<div className="flex flex-wrap">
 					{slide.genres.map((item, index) => (
-						<div className="px-3 py-1 h-fit w-fit rounded-full bg-corange/20 text-corange border border-corange/40" key={index}>
+						<div className="text-[1.7vh] sm:text-[2vh] lg:text-[1.5vw] px-3 py-1 mb-[1.5vh] mr-[1.5vh] h-fit w-fit rounded-full bg-corange/20 text-corange border border-corange/40" key={index}>
 						{item}
 						</div>
 					))}
 					</div>
 
-					<div className="flex flex-wrap lg:space-x-3">
+					<div className="text-[1.7vh] sm:text-[2vh] lg:text-[1.5vw] flex flex-col lg:flex-row lg:space-x-3">
 						<button className="px-5 py-3 w-fit h-fit border border-white hover:bg-white/30 rounded-md text-white" onClick={() => (router.push(`/games/${slide.slug}`))}>
 							View Details
 						</button>
-						<div className="px-5 py-3 w-fit h-fit flex flex-row space-x-2">
-							<Star className="mr-1"/>
-							Rating: <span className="font-bold">{slide.rating} / 10</span> 
+						<div className="px-0 lg:px-5 py-3 w-fit h-fit flex flex-row space-x-2">
+							Rating: <br /> <span className="font-bold">{slide.rating} / 10</span> 
 						</div>
 					</div>
 

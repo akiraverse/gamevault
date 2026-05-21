@@ -29,6 +29,9 @@ const config: Config = {
 				// Create a custom utility 'font-pixel' for your game font
 				pixel: ["var(--font-press-start)", "cursive"],
 			},
+			screens: {
+				
+			}
 		},
 	},
   	plugins: [],

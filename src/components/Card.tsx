@@ -45,14 +45,14 @@ export const Card = ({ slide, route }: { slide: IGameInfo, route: string }) => {
 					style={{ backgroundImage: `url(${slide.coverImage})`}}
 				/>
 
-				<div className="p-7 space-y-5">
+				<div className="p-7 space-y-5 flex flex-col">
 					<div className="space-y-2">
-						<h2 className="text-2xl font-bold">{slide.title}</h2>
-						<h4 className="text-lg text-gray-300">{slide.description}</h4>
+						<h2 className="text-2xl md:text-lg font-bold">{slide.title}</h2>
+						<h4 className="text-lg md:text-sm text-gray-300">{slide.description}</h4>
 					</div>
 					
-					<div className="flex flex-row items-center">
-						<div className="flex flex-row mr-auto items-center">
+					<div className="float-left mr-auto flex flex-col text-left lg:flex-row items-center">
+						<div className="flex flex-row lg:mr-auto items-center">
 							<Star className="text-yellow-500 w-5 h-5 mr-1 fill-yellow-500"/>
 							<span className="font-bold">{slide.rating}</span>/10
 						</div>
@@ -63,7 +63,7 @@ export const Card = ({ slide, route }: { slide: IGameInfo, route: string }) => {
 
 					<div className="flex flex-wrap">
 						{slide.genres.map((item, index) => (
-							<div key={index} className="px-3 py-1 my-1 mr-1 h-fit w-fit rounded-full bg-corange/20 text-corange border border-corange/40">
+							<div key={index} className="text-sm lg:text-base px-3 py-1 my-1 mr-1 h-fit w-fit rounded-full bg-corange/20 text-corange border border-corange/40">
 								{item}
 							</div>
 						))}

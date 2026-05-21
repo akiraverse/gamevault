@@ -17,7 +17,7 @@ export default function Home() {
         <SlidingBanner slides={featuredGames}/>
       </section>
 
-      <section className="w-[90%] mx-auto justify-center grid lg:grid-cols-3 relative">
+      <section className="w-[90%] mx-auto justify-center grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 relative">
         {games.map((item, index) => {
           return (
             <div key={index} className="m-5">
