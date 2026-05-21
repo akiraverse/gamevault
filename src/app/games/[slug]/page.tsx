@@ -1,17 +1,40 @@
 "use client"
 
-import Link from "next/link";
 import { Sparkles, Star, Calendar, Laptop2Icon, DollarSign, User } from "lucide-react";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+import { getWishlist, addToWishlist, removeFromWishlist, isInWishlist, toggleWishlist } from "@/utils/wishlist";
 import data from "@/data/games.json"
 import IGameInfo from "@/types/IGameInfo";
 
 export default function Game({params}: {params: Promise<{slug: string}>}) {
 	const router = useRouter()
 	const { slug } = React.use(params);
+
 	const games: IGameInfo[] = data
 	const game: IGameInfo | undefined = games.find((g) => (g.slug === slug))
+	const wishlistedGames: string[] = getWishlist()
+	const [inWishlist, setInWishlist] = useState(false)
+	const gameId = String(game?.id)
+
+	useEffect(() => {
+	if (game) {
+		setInWishlist(isInWishlist(gameId));
+	}
+	}, [game]);
+
+	useEffect(() => {
+	if (game) {
+		const updateWishlist = () => setInWishlist(isInWishlist(gameId));
+		window.addEventListener('wishlist-updated', updateWishlist);
+		return () => window.removeEventListener('wishlist-updated', updateWishlist);
+	}
+	}, [game]);
+
+	const handleWishlistClick = () => {
+		toggleWishlist(gameId);
+	};
 
 	return (
 		<div 
@@ -96,7 +119,14 @@ export default function Game({params}: {params: Promise<{slug: string}>}) {
 						</div>
 
 						{/* add to wishlist */}
-						<button className="w-full p-5 bg-lightPrimary rounded-lg border border-red-900 hover:border-red-500 hover:text-red-500 hover:bg-red-900 shadow-red-900">
+						<button 
+							onClick={handleWishlistClick}
+							className={`w-full p-5 bg-lightPrimary rounded-lg border border-red-900 shadow-red-900 ${
+								wishlistedGames.includes(String(game?.id))
+								? "text-red-500 bg-red-900"
+								: "bg-lightPrimary"
+							}`}
+						>
 							Add To Wishlist
 						</button>
 

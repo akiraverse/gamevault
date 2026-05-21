@@ -104,7 +104,7 @@ export default function Games() {
 
 	return (
 		<div className="space-y-10">
-			<section className="w-[87%] mx-auto justify-center mt-52 space-y-10">
+			<section className="w-[90%] mx-auto justify-center mt-52 space-y-10">
 				<h2 className="text-7xl font-extrabold bg-gradient-to-r from-cred via-accent to-amber-500 bg-clip-text text-transparent">
 					Explore Games
 				</h2>
