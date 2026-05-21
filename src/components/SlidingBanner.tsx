@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { Sparkles, Star } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import IGameInfo from "@/types/IGameInfo";
 
 export const SlidingBanner = ({ slides }: { slides: IGameInfo[] }) => {
+	const router = useRouter()
 	const [currentIndex, setCurrentIndex] = useState(0)
 	const [isPaused, setIsPaused] = useState(false)
 	const autoPlayRef = useRef<number | null>(null)
@@ -91,9 +93,9 @@ export const SlidingBanner = ({ slides }: { slides: IGameInfo[] }) => {
 					</div>
 
 					<div className="flex flex-wrap lg:space-x-3">
-						<div className="px-5 py-3 w-fit h-fit border border-white hover:bg-white/30 rounded-md text-white">
-							<Link href={''}>View Details</Link>
-						</div>
+						<button className="px-5 py-3 w-fit h-fit border border-white hover:bg-white/30 rounded-md text-white" onClick={() => (router.push(`/games/${slide.slug}`))}>
+							View Details
+						</button>
 						<div className="px-5 py-3 w-fit h-fit flex flex-row space-x-2">
 							<Star className="mr-1"/>
 							Rating: <span className="font-bold">{slide.rating} / 10</span> 
