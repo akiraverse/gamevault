@@ -230,7 +230,7 @@ export default function Games() {
 				{filteredGames.length > 0 ? (
 					filteredGames.map((game) => (
 						<div key={game.id} className="m-5">
-							<Card slide={game} route={''} />
+							<Card slide={game} route={`/games/${game.slug}`} />
 						</div>
 					))
 				) : (

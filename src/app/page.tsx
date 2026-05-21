@@ -21,7 +21,7 @@ export default function Home() {
         {games.map((item, index) => {
           return (
             <div key={index} className="m-5">
-              <Card slide={item} route={`/${item.title.toLowerCase()}`}/>
+              <Card slide={item} route={`/games/${item.slug}`}/>
             </div>
           )
         })}
