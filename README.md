@@ -142,6 +142,13 @@ Trade-off: User tidak perlu login, implementasi cepat, tapi wishlist tidak bisa 
 Keputusan: Search dan filter dilakukan di sisi client (bukan server)
 Trade-off: Dengan 30 entri data, performa tidak jadi masalah. Namun jika data berkembang ke ribuan game, pendekatan ini akan menjadi sangat lambat
 
+### 4. Responsive Design
+Kendala: Menentukan ukuran komponen yang konsisten dan estetik di berbagai ukuran layar terbukti menjadi salah satu tantangan terbesar dalam project ini.
+Pendekatan awal: Menggunakan unit vw dan vh agar sizing mengikuti ukuran viewport secara dinamis.
+Masalah yang ditemukan: Meski responsif terhadap perubahan layar, hasil visualnya tidak selalu sesuai ekspektasi — proporsi elemen terasa "off" di beberapa resolusi, dan kontrol terhadap tampilan akhir menjadi sulit diprediksi.
+Keputusan akhir: Beberapa elemen beralih ke nilai fixed (px) untuk menjaga konsistensi visual dan keterbacaan layout.
+Trade-off: Fixed sizing lebih mudah dikontrol secara estetik, tapi kurang fleksibel di layar yang sangat kecil atau sangat besar.
+
 ---
 
 ## 🚀 Deploy
